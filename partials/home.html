@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            Tea
+          </th>
+          <th>
+            Information
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat='item in items track by $index'>
+          <td>
+            <img src="{{item.imageUrl}}" alt="" />
+          </td>
+          <td>
+            <h3>{{item.name}}</h3>
+            <p>
+              Price {{item.price / 100 | currency}}
+            </p>
+            <p>
+              ingredients: {{item.ingredients}}
+            </p>
+            <p>
+              Rating : {{item.rating}}
+            </p>
+            <p ng-show>
+              In Stock? {{item.inStock}}
+            </p>
+            <p>
+              In Stock? {{item.inStock ? "yes" : "no" }}
+            </p>
+            <p>
+              categories :
+            </p>
+            <ul >
+              <li ng-repeat="category in item.categories">
+                {{category}}
+              </li>
+            </ul>
+          </td>
+
+          <td>
+            <label for="">Quantity</label>
+            <select class="" name="">
+              <option value="1">1 </option>
+              <option value="2">2 </option>
+              <option value="3">3 </option>
+              <option value="4">4 </option>
+              <option value="5">5 </option>
+              <option value="6">6 </option>
+              <option value="7">7 </option>
+              <option value="8">8</option>
+            </select>
+          </td>
+
+          <td>
+            <button class="btn btn-warning" type="submit" name="button">Add to bag</button>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

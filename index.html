@@ -7,7 +7,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" media="screen">
   </head>
-  <body ng-controller="HomeController">
+  <body>
     <h1> Welcome to Mean TEA!</h1>
     <nav class="navbar navbar-default navbar-inverse" role="navigation" id="navigationBar">
       <div class="container-fluid">
@@ -43,10 +43,12 @@
           <button class="btn btn-danger pull-right" type="submit" name="button">Chekout | </button>
         </form>
         </div>
-
       </div>
     </div>
 
+    <div ng-view>
+
+    </div>
 
     <script src="./js/app.js" type="text/javascript"></script>
     <script src="./js/controllers.js" type="text/javascript"></script>

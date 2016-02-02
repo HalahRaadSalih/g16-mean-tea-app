@@ -11,16 +11,17 @@
           </th>
           <th>
           <label>Sort By:</label>
-          <select ng-model="sortBy">
-            <option value="lowToHigh"> Lowest to Highest </option>
-            <option value="highToLow"> Highest to Lowest </option>
+          <select ng-model='priceSorting'>
+            <option value="price"> Lowest to Highest </option>
+            <option value="-price"> Highest to Lowest </option>
           </select>
         </th>
+        {{priceSorting}}
         </tr>
         
       </thead>
       <tbody>
-        <tr ng-repeat='item in items  | filter : searchText | categoriesFilter : category track by $index'>
+        <tr ng-repeat='item in items  | filter : searchText | categoriesFilter : category | orderBy : priceSorting track by $index'>
           <td>
             <img ng-src="{{item.imageUrl}}" alt="" />
           </td>

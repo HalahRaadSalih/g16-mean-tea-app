@@ -18,4 +18,8 @@ app.controller('HomeController', function($scope, $http, menuItems, categories){
         return new Array(n);
     };
 
+    $scope.priceSorting = "price";
+
+    }
+
 });

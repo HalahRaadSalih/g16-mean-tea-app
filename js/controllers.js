@@ -1,8 +1,10 @@
 var app = angular.module('app');
 
-app.controller('HomeController', function($scope, $http){
-  $http.get('http://localhost:8000/js/data.json').then(function(data){
+app.controller('HomeController', function($scope, $http, menuItems){
     $scope.items = [];
-    $scope.items = data.data.data;
-  });
+    console.log(menuItems.data().then(function(data){
+        $scope.items = data.items;
+    }));
+
+
 });

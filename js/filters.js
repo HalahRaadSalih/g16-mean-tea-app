@@ -4,7 +4,7 @@ app.filter('categoriesFilter', function () {
   var filtersItems = [];
    return function(items, category){
      filtersItems = [];
-
+     if(category){
       for(var i = 0; i< items.length; i++){
         for(var j = 0; j < items[i].categories.length; j++ ){
           if (category === items[i].categories[j] ){
@@ -14,7 +14,13 @@ app.filter('categoriesFilter', function () {
         }
       }
 
-     return filtersItems;
+      return filtersItems;
+  	}
+  	else{
+  		return items;
+  	}
+
+     
    }
 
 });

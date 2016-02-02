@@ -12,9 +12,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat='item in items  | filter : searchText track by $index'>
+        <tr ng-repeat='item in items  | filter : searchText  | filter : category track by $index'>
           <td>
-            <img src="{{item.imageUrl}}" alt="" />
+            <img ng-src="{{item.imageUrl}}" alt="" />
           </td>
           <td>
             <h3>{{item.name}}</h3>

@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat='item in items track by $index'>
+        <tr ng-repeat='item in items  | filter : searchText track by $index'>
           <td>
             <img src="{{item.imageUrl}}" alt="" />
           </td>

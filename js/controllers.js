@@ -14,6 +14,7 @@ app.controller('HomeController', function($scope, $http, menuItems, categories){
     });
 
     $scope.quantity = function(n) {
+        // create new Array of length up to n
         return new Array(n);
     };
 

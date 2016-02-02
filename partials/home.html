@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat='item in items  | filter : searchText  | filter : category track by $index'>
+        <tr ng-repeat='item in items  | filter : searchText | categoriesFilter : category track by $index'>
           <td>
             <img ng-src="{{item.imageUrl}}" alt="" />
           </td>
@@ -37,7 +37,7 @@
               categories :
             </p>
             <ul >
-              <li ng-repeat="category in item.categories">
+              <li ng-repeat="category in item.categories | filter : categoriesFilter">
                 {{category}}
               </li>
             </ul>

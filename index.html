@@ -36,7 +36,7 @@
               <div class="form-group">
                 <label for="">Search By categories</label>
                 <select ng-model="category">
-                  <option ng-repeat='category in categories' value="category">
+                  <option ng-repeat='category in categories' value="{{category}}">
                     {{category}}
                   </option>
                 </select>
@@ -65,6 +65,7 @@
     <script src="./js/app.js" type="text/javascript"></script>
     <script src="./js/controllers.js" type="text/javascript"></script>
     <script src="./js/services.js" type="text/javascript"></script>
+    <script src="./js/filters.js" type="text/javascript"></script>
 
   </body>
 </html>

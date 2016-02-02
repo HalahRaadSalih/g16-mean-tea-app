@@ -13,5 +13,8 @@ app.controller('HomeController', function($scope, $http, menuItems, categories){
         $scope.items = data.items;
     });
 
+    $scope.quantity = function(n) {
+        return new Array(n);
+    };
 
 });

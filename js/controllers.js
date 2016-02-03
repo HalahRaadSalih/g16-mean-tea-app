@@ -29,7 +29,7 @@ app.controller('HomeController', function($scope, $http, menuItems, categories, 
       // teaObj = {};
       // teaObj[item] = q
       // addToCart.cart.push(teaObj)
-      $scope.cartTotal += 1;
+      $scope.cartTotal += 1 * q;
       // addToCart.uniqueItemCount = 9;
       // console.log(addToCart.uniqueItemCount)
     }

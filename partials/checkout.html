@@ -8,7 +8,7 @@
 				<h3 class="pull-right">Order Total: {{}} </h3>
 			</div>
 		</div>
-		
+
 	</div>
 </div>
 <br>
@@ -35,9 +35,9 @@
 
 					<td>
 						<p ng-show="!editValue">{{i.quantity}} </p>
-						<p ng-show="editValue">
-							<input type="number" value="i.quantity" ng-model="newQuantity">
-						</p>
+						<form ng-show="editValue">
+							<input type="number" min="1" max="9"value="7" ng-model="newQuantity" name="quantity">
+						</form>
 					</td>
 
 					<td>

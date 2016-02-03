@@ -9,6 +9,7 @@ app.controller('HomeController', function($scope, $http, $location, menuItems, c
     categories.fetchCategories.then(function(data){
      $scope.categories = data;
     });
+
     $scope.items = [];
     $scope.cartTotal = 0;
     // get menu items
@@ -27,7 +28,6 @@ app.controller('HomeController', function($scope, $http, $location, menuItems, c
       var cartObj = {};
       cartObj.tea = item;
       cartObj.quantity = q;
-      // console.log("item.price = ", item.price*q/100)
       cartObj.subtotal = (q*item.price)/100;
       addToCart.cart.push(cartObj)
       $scope.cartTotal += 1 * q;
@@ -41,6 +41,7 @@ app.controller('HomeController', function($scope, $http, $location, menuItems, c
 app.controller('CheckoutController', function($scope, $http, menuItems, categories, addToCart){
   $scope.cartArray = addToCart.cart;
   $scope.editValue = false;
+
   $scope.editQuantity = function(cartItem){
     $scope.editValue = !$scope.editValue
     cartItem.quantity = $scope.newQuantity;

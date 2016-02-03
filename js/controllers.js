@@ -40,5 +40,9 @@ app.controller('HomeController', function($scope, $http, $location, menuItems, c
 
 app.controller('CheckoutController', function($scope, $http, menuItems, categories, addToCart){
   $scope.cartArray = addToCart.cart;
-  console.log($scope.cartArray)
+  $scope.editValue = false;
+  $scope.editQuantity = function(cartItem){
+    $scope.editValue = !$scope.editValue
+    cartItem.quantity = $scope.newQuantity;
+  }
 })

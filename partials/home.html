@@ -1,5 +1,8 @@
 <div class="row">
   <div class="col-md-12">
+    <div class="row">
+      <button class="btn btn-danger pull-right" type="submit" name="button">Chekout | {{cartTotal}}</button>
+    </div>
     <table class="table">
       <thead>
         <tr>
@@ -16,7 +19,6 @@
             <option value="-price"> Highest to Lowest </option>
           </select>
         </th>
-        {{priceSorting}}
         </tr>
         
       </thead>
@@ -54,13 +56,13 @@
 
           <td>
             <label for="">Quantity</label>
-            <select class="" name="">
+            <select class="" ng-model="quanity">
               <option ng-repeat="a in quantity(9) track by $index" value="{{$index +1}}">{{$index + 1}} </option>
             </select>
           </td>
 
           <td>
-            <button class="btn btn-warning" type="submit" name="button">Add to bag</button>
+            <button class="btn btn-warning" type="submit" name="button" ng-click="addToBag(item,quanity)">Add to bag</button>
           </td>
 
         </tr>

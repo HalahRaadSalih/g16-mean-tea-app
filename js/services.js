@@ -33,3 +33,11 @@ app.service('categories', function(menuItems){
       return uniqueCategories(categories);
   })};
 });
+
+app.service('addToCart', function(){
+  var cartArray = [];
+  return{
+    // cart: cartArray,
+    uniqueItemCount: 0
+  }
+})

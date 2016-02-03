@@ -1,0 +1,38 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6">
+			<h3>My Shopping Cart</h3>
+		</div>
+		<div class="col-md-6">
+			<h3>Order Total: {{}} </h3>
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+			<thead>
+				<th>Product</th>
+				<th>Quanity</th>
+				<th>Subtotal</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="i in cartArray track by $index">
+					<td>
+						<h4>{{i.tea.name}}</h4>
+						<img ng-src="{{i.tea.imageUrl}}">
+						<p>Caffeine Scale : {{i.tea.caffeineScale}}</p>
+						<p>Ingredients : {{i.tea.ingredients}}</p>
+						<p>Rating : {{i.tea.rating}}</p>
+					</td>
+
+					<td>
+						<p>{{i.quantity}} </p>
+					</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+	</div>
+</div>

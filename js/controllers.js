@@ -1,16 +1,19 @@
 var app = angular.module('app');
 
 
-app.controller('IndexController', function($scope, categories, addToCart){
+app.controller('IndexController', function($scope){
   // $scope.cartTotal = addToCart.uniqueItemCount;
 
   // console.log($scope.cartTotal)
-   categories.fetchCategories.then(function(data){
-     $scope.categories = data;
-   });
+   // categories.fetchCategories.then(function(data){
+   //   $scope.categories = data;
+   // });
 });
 
 app.controller('HomeController', function($scope, $http, menuItems, categories, addToCart){
+    categories.fetchCategories.then(function(data){
+     $scope.categories = data;
+    });
     $scope.items = [];
     $scope.cartTotal = 0;
     // get menu items
@@ -26,15 +29,12 @@ app.controller('HomeController', function($scope, $http, menuItems, categories, 
     $scope.priceSorting = "price";
 
     $scope.addToBag = function(item,q){
-      // teaObj = {};
-      // teaObj[item] = q
-      // addToCart.cart.push(teaObj)
+      var cartObj = {};
+      cartObj.tea = item;
+      cartObj.quanity = q;
+      addToCart.cart.push(cartObj)
       $scope.cartTotal += 1 * q;
-      // addToCart.uniqueItemCount = 9;
-      // console.log(addToCart.uniqueItemCount)
     }
-
-    // console.log(addToCart.cartTotal)
 });
 
 app.controller('CheckoutController', function($scope, $http, menuItems, categories, addToCart){

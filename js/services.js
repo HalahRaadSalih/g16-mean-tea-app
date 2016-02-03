@@ -37,7 +37,6 @@ app.service('categories', function(menuItems){
 app.service('addToCart', function(){
   var cartArray = [];
   return{
-    // cart: cartArray,
-    uniqueItemCount: 0
+    cart: []
   }
 })

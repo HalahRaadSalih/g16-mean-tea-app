@@ -5,7 +5,7 @@ app.controller('IndexController', function($scope){
   //Index Controller Empty for now
 });
 
-app.controller('HomeController', function($scope, $http, $location, menuItems, categories, addToCart){
+app.controller('HomeController', function($scope, $http, $location, menuItems, categories, addToCart, updateItem){
     categories.fetchCategories.then(function(data){
      $scope.categories = data;
     });
@@ -29,7 +29,7 @@ app.controller('HomeController', function($scope, $http, $location, menuItems, c
     $scope.addToBag = function(item,quantity){
       addToCart.addItem(item, quantity);
       $scope.cartTotal += 1 * quantity;
-     
+
     }
 
     //checking out
@@ -38,26 +38,24 @@ app.controller('HomeController', function($scope, $http, $location, menuItems, c
     }
 });
 
-app.controller('CheckoutController', function($scope, $http, menuItems, categories, addToCart, cartItems){
+app.controller('CheckoutController', function($scope, $http, menuItems, categories, addToCart, cartItems, updateItem, removeItem){
   $scope.items = cartItems.cart;
 
   // initially editing is disabled
   $scope.editValue = false;
 
   // when edit is clicked, it should only updated the edit being clicked
-  $scope.editQuantity = function(item){
+  $scope.editQuantity = function(){
     $scope.editValue = !$scope.editValue
-    //find an item in the cart with that item.id
-    for(var i  = 0; i < addToCart.cart.length; i++){
-      if(addToCart.cart[i]._id === item._id){
-            console.log(item._id);
-        console.log('yo, we have an item');
-      }
-    }
+
   }
 
-  $scope.saveEditQuantity = function(cartItem){
+  $scope.saveQuantity = function(cartItem){
     $scope.editValue = !$scope.editValue
     // console.log("cartItem = ", cartItem)
+  }
+
+  $scope.removeItem = function(item){
+    removeItem.remove(item);
   }
 })

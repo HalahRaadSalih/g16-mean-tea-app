@@ -58,8 +58,11 @@ app.service('addToCart',function(cartItems){
       return false;
 
     }
-    
+
   }
+
+
+
   return{
     addItem: function(item, quantity){
       // check if item already exits
@@ -73,8 +76,44 @@ app.service('addToCart',function(cartItems){
       }
       else{
         console.log('item is already in cart');
+        // get that item from cart & update quantity
+        cartItems.cart[findItem(cartItems.cart,'_id',item)].quantity = quantity;
       }
     }
   }
-    
+
 });
+
+app.service('updateItem', function(cartItems){
+  return{
+    update: function(item, quantity){
+
+      cartItems.cart[findItem(cartItems.cart,'_id',item)].quantity = quantity;
+      console.log(cartItems.cart[findItem(cartItems.cart,'_id',item)].quantity)
+    }
+  }
+});
+
+app.service('removeItem', function (cartItems) {
+    return{
+        remove: function(item){
+          //find item index
+          var itemIndex = findItem(cartItems.cart,'_id',item);
+          // remove it from cart
+          cartItems.cart.splice(itemIndex,1);
+          console.log(cartItems.cart.length);
+        }
+    }
+});
+
+function findItem(arr, key, itemToSearch) {
+
+  for (var i = 0; i < arr.length; i++) {
+
+    if (arr[i][key] == itemToSearch[key]) {
+      return i;
+    }
+  }
+
+  return null;
+}

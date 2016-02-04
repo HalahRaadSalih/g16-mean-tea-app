@@ -44,9 +44,9 @@
 						<p>{{item.subtotal}}</p>
 					</td>
 					<td>
-						<button type="button" ng-show="!editValue"ng-click="editQuantity(i)" class="btn btn-info">Edit</button>
-						<!-- <button type="button" ng-show="editValue" ng-click="saveEditQuantity(0)" class="btn btn-info">Save</button>
-						<button type="button" class="btn btn-danger">Remove</button> -->
+						<button type="button" ng-show="!editValue"ng-click="editQuantity()" class="btn btn-info">Edit</button>
+						<button type="button" ng-show="editValue" ng-click="saveQuantity(item)" class="btn btn-info">Save</button>
+						<button type="button" class="btn btn-danger" ng-click="removeItem(item)">Remove</button>
 					</td>
 				</tr>
 			</tbody>

@@ -89,7 +89,6 @@ app.service('updateItem', function(cartItems){
     update: function(item, quantity){
 
       cartItems.cart[findItem(cartItems.cart,'_id',item)].quantity = quantity;
-      console.log(cartItems.cart[findItem(cartItems.cart,'_id',item)].quantity)
     }
   }
 });
@@ -101,7 +100,6 @@ app.service('removeItem', function (cartItems) {
           var itemIndex = findItem(cartItems.cart,'_id',item);
           // remove it from cart
           cartItems.cart.splice(itemIndex,1);
-          console.log(cartItems.cart.length);
         }
     }
 });

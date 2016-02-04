@@ -44,15 +44,20 @@ app.controller('CheckoutController', function($scope, $http, menuItems, categori
   // initially editing is disabled
   $scope.editValue = false;
 
+  $scope.quantity = function(n) {
+      // create new Array of length up to n
+      return new Array(n);
+  };
   // when edit is clicked, it should only updated the edit being clicked
   $scope.editQuantity = function(){
     $scope.editValue = !$scope.editValue
 
   }
 
-  $scope.saveQuantity = function(cartItem){
+  $scope.saveQuantity = function(item, quanity){
     $scope.editValue = !$scope.editValue
     // console.log("cartItem = ", cartItem)
+    updateItem.update(item, quanity);
   }
 
   $scope.removeItem = function(item){

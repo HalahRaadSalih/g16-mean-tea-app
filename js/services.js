@@ -87,8 +87,8 @@ app.service('addToCart',function(cartItems){
 app.service('updateItem', function(cartItems){
   return{
     update: function(item, quantity){
-
       cartItems.cart[findItem(cartItems.cart,'_id',item)].quantity = quantity;
+      cartItems.cart[findItem(cartItems.cart,'_id',item)].subtotal = item.price / 100 * quantity;
     }
   }
 });
@@ -104,6 +104,20 @@ app.service('removeItem', function (cartItems) {
     }
 });
 
+app.service('order', function(cartItems){
+    return{
+      total : function(){
+        var sum = 0;
+        for(var i = 0; i < cartItems.cart.length; i++){
+          sum += cartItems.cart[i].subtotal;
+        }
+        console.log('sum is'+sum);
+
+        return sum;
+
+      }
+    }
+});
 function findItem(arr, key, itemToSearch) {
 
   for (var i = 0; i < arr.length; i++) {

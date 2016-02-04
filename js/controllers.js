@@ -38,11 +38,12 @@ app.controller('HomeController', function($scope, $http, $location, menuItems, c
     }
 });
 
-app.controller('CheckoutController', function($scope, $http, menuItems, categories, addToCart, cartItems, updateItem, removeItem){
+app.controller('CheckoutController', function($scope, $http, menuItems, categories, addToCart, cartItems, updateItem, removeItem, order){
   $scope.items = cartItems.cart;
 
   // initially editing is disabled
   $scope.editValue = false;
+  $scope.orderTotal = order.total();
 
   $scope.quantity = function(n) {
       // create new Array of length up to n
@@ -50,17 +51,23 @@ app.controller('CheckoutController', function($scope, $http, menuItems, categori
   };
   // when edit is clicked, it should only updated the edit being clicked
   $scope.editQuantity = function(){
-    $scope.editValue = !$scope.editValue
-
+    $scope.editValue = !$scope.editValue;
   }
 
   $scope.saveQuantity = function(item, quanity){
     $scope.editValue = !$scope.editValue
     // console.log("cartItem = ", cartItem)
     updateItem.update(item, quanity);
+    // update total order
+    $scope.orderTotal = order.total();
+
   }
 
   $scope.removeItem = function(item){
+    // removeItem
     removeItem.remove(item);
+    // update total order
+    $scope.orderTotal = order.total();
+
   }
 })

@@ -36,7 +36,44 @@ app.service('categories', function(menuItems){
 
 app.service('addToCart', function(){
   var cartArray = [];
+  
+  function containsItem(item, cart) {
+    var i;
+    if(cart.length > 0){
+      for (i = 0; i < cart.length; i++) {
+        if (cart[i] === item) {
+            return true;
+        }
+        else
+        {
+          return false
+        }
+      }
+    }
+    else{
+      return false;
+
+    }
+    
+  }
+
   return{
-    cart: []
+    cart: [],
+    addItem: function(item, quantity){
+      console.log('inside add item method');
+      // check if item already exits
+      if(!containsItem(item, cartArray)){
+        console.log('item is not in cart, adding new item');
+        // add quantity property to the item
+        item.quantity = quantity;
+        // subtotal property to item
+        item.subtotal = item.price / 100 * quantity;
+        //add item to cart
+        cartArray.push(item);
+      }
+      else{
+        console.log('item is already in cart');
+      }
+    }
   }
 })

@@ -24,28 +24,29 @@
 				<th>Subtotal</th>
 			</thead>
 			<tbody>
-				<tr ng-repeat="i in cartArray track by $index">
+				<tr ng-repeat="item in cart track by $index">
 					<td>
-						<h4>{{i.tea.name}}</h4>
+						<h4>{{item.name}}</h4>
 						<img ng-src="{{i.tea.imageUrl}}">
-						<p>Caffeine Scale : {{i.tea.caffeineScale}}</p>
-						<p>Ingredients : {{i.tea.ingredients}}</p>
-						<p>Rating : {{i.tea.rating}}</p>
+						<p>Caffeine Scale : {{item.caffeineScale}}</p>
+						<p>Ingredients : {{item.ingredients}}</p>
+						<p>Rating : {{item.rating}}</p>
 					</td>
 
 					<td>
-						<p ng-show="!editValue">{{i.quantity}} </p>
+						<p ng-show="!editValue">{{item.quantity}} </p>
 						<form ng-show="editValue">
-							<input type="number" min="1" max="9"value="7" ng-model="newQuantity" name="quantity">
+							<input type="text" ng-model="newQuantity">
 						</form>
 					</td>
 
 					<td>
-						<p>{{i.subtotal}}</p>
+						<p>{{item.subtotal}}</p>
 					</td>
 					<td>
-						<button type="button" ng-click="editQuantity(i)" class="btn btn-info">Edit</button>
-						<button type="button" class="btn btn-danger">Remove</button>
+						<button type="button" ng-show="!editValue"ng-click="editQuantity(i)" class="btn btn-info">Edit</button>
+						<!-- <button type="button" ng-show="editValue" ng-click="saveEditQuantity(0)" class="btn btn-info">Save</button>
+						<button type="button" class="btn btn-danger">Remove</button> -->
 					</td>
 				</tr>
 			</tbody>

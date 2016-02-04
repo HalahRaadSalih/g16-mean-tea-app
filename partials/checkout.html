@@ -24,10 +24,10 @@
 				<th>Subtotal</th>
 			</thead>
 			<tbody>
-				<tr ng-repeat="item in cart track by $index">
+				<tr ng-repeat="item in items track by $index">
 					<td>
 						<h4>{{item.name}}</h4>
-						<img ng-src="{{i.tea.imageUrl}}">
+						<img ng-src="{{item.imageUrl}}">
 						<p>Caffeine Scale : {{item.caffeineScale}}</p>
 						<p>Ingredients : {{item.ingredients}}</p>
 						<p>Rating : {{item.rating}}</p>

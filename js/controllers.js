@@ -38,8 +38,9 @@ app.controller('HomeController', function($scope, $http, $location, menuItems, c
     }
 });
 
-app.controller('CheckoutController', function($scope, $http, menuItems, categories, addToCart){
-  $scope.items = addToCart.cart;
+app.controller('CheckoutController', function($scope, $http, menuItems, categories, addToCart, cartItems){
+  $scope.items = cartItems.cart;
+
   // initially editing is disabled
   $scope.editValue = false;
 
@@ -53,7 +54,6 @@ app.controller('CheckoutController', function($scope, $http, menuItems, categori
         console.log('yo, we have an item');
       }
     }
-
   }
 
   $scope.saveEditQuantity = function(cartItem){

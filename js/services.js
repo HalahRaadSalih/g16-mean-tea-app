@@ -34,9 +34,13 @@ app.service('categories', function(menuItems){
   })};
 });
 
-app.service('addToCart', function(){
-  var cartArray = [];
-  
+app.service('cartItems', function(){
+  return{
+    cart: []
+  }
+});
+
+app.service('addToCart',function(cartItems){
   function containsItem(item, cart) {
     var i;
     if(cart.length > 0){
@@ -56,24 +60,21 @@ app.service('addToCart', function(){
     }
     
   }
-
   return{
-    cart: [],
     addItem: function(item, quantity){
-      console.log('inside add item method');
       // check if item already exits
-      if(!containsItem(item, cartArray)){
-        console.log('item is not in cart, adding new item');
+      if(!containsItem(item, cartItems.cart)){
         // add quantity property to the item
         item.quantity = quantity;
         // subtotal property to item
         item.subtotal = item.price / 100 * quantity;
         //add item to cart
-        cartArray.push(item);
+        cartItems.cart.push(item);
       }
       else{
         console.log('item is already in cart');
       }
     }
   }
-})
+    
+});
